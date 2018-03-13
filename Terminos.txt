@@ -1,0 +1,79 @@
+/************* Reducer ************************/
+
+Reducer: Funcionn que retorna un pedazo del estado de  la aplicacion
+
+Objecto plano
+Nuestra aplicacion puede tener muchos pedazo de estado entonces muchos reducers
+
+Los reducer me dan el valor del state
+el valor del state me lo da el reducer
+
+{
+
+book:[{title:'harry poter'},{title:'javascript'}]				
+activeBook : {title:'Javascript'}
+
+}
+
+2 reducers: Book reducer , active Book reducer
+Funcion que retorna el valor del state
+
+le estamos diciendo como crear el estado
+
+/******************* Container ***********/
+Responde a la pregunta el componente le interesa cuando el estado cambia?
+Detalle : Cuando el actual cambia
+
+3.- Tienes que definir que component sera un container
+y un cotainer es el que tiene conexion directa con el state de la aplicacion
+
+Comvertiremos un Dom component a un smart component (HOC)
+
+/********************* Las actions ****************/
+4.- Life cicle de la action
+
+Todo empieza con un trigger de evento por parte del usuario directa o indirectamente 
+
+Puede ser el click sobre un boton, hover, escribir en un input etx.
+
+Indirectamente con un ajax request o cuando carga una pagina 
+
+Estos disparadores de evento se conocen con actionsCreators
+Action Creator es una funcion que retorna un accion
+
+P rejemplo, le doy click a un boton, entonces estoy llamando a un action creator 
+
+El action creator es una funcion que retorna un objeto y ese objeto tiene como propiedad, como key-, una action 
+y es esa action que se envía automaticamente a todos los reducers dentro de la aplicacion no importa la cantidad de reducer estas acciones van a todos
+
+
+Los reducers pueden escoger, dependiendo de la accion 
+retornar diferentes pedazos de nuevos estado dependiendo de la accion que se trate 
+
+y ese cambio de state hace que los componentes se actualicen (render)
+
+function({
+return {
+type: BOOK_SELECTED //describe la action
+book : {title: 'Book2'} //la data que traera esa action
+}
+})
+
+Los reducers procesan la action y retornan un nuevo estado. Cuando el nuevo cambio ha sido captado. Notifica a los containers del cambio del estado y con la notificacion los containers se renderizaran con el nuevo valor de la props
+
+/*******************Resumen**********************/
+action vs action Creator
+
+- Action creator es una function que retorna una action
+- la action es un objeto que va fluir por todos los reducers
+- El reducer toman esa action y dependiendo de cual se trata retornan siempre algo, un nuevo estado o el estado actual 
+
+/******************Actions******************/
+
+Ahora le debemos dar el click al usuario
+entonces definimos un action creator 
+
+
+
+
+
